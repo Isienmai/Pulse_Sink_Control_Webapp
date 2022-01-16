@@ -9,3 +9,5 @@ extern{
 pub fn greet(name: &str) {
     alert(&format!("why HELLO THERE {}!", name));
 }
+
+mod pulse;
