@@ -18,8 +18,8 @@ impl Sink{
 
         let mut result = None;
         if name.is_some() && description.is_some() {
-            let name = name.unwrap().clone();
-            let description = description.unwrap().clone();
+            let name = name.unwrap();
+            let description = description.unwrap();
     
             result = Some(Sink { name, description });
         }
