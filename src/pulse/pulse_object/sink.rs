@@ -1,4 +1,4 @@
-use super::pactl_list_format;
+use super::*;
 
 /// Struct to represent a pulse audio Sink object
 /// For now we only care about the Sink's Name and Description
@@ -8,13 +8,15 @@ pub struct Sink{
 }
 
 impl Sink{
-    /// A function that parses a single Sink object from the output of "pactl list sinks"
-    /// Expects the provided string to be the full info dump for a SINGLE Sink object.
-    pub fn parse_from_pactl_list_output(object_info: &str) -> Option<Sink> {
-        let object_info = pactl_list_format::parse_single_object(object_info);
+    /// A function that converts a single Pulse Object into a Sink
+    /// Returns None if the provided object does not define a Sink or is missing the Name and Description properties
+    pub fn from(object: &PulseObject) -> Option<Sink> {
+        if object.object_type != "Sink"{
+            return None;
+        }
 
-        let name = object_info.get("Name");
-        let description = object_info.get("Description");
+        let name = object.get("Name");
+        let description = object.get("Description");
 
         let mut result = None;
         if name.is_some() && description.is_some() {

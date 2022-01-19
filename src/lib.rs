@@ -14,6 +14,11 @@ pub fn greet(name: &str) {
 
 #[wasm_bindgen]
 pub fn parse_sources(sources_list: &str) {
-
-    // TODO: Parse the sources list using the pulse module
+    pulse::parse_sources(sources_list);
 }
+
+#[wasm_bindgen]
+pub fn parse_sinks(sources_list: &str) {
+    pulse::parse_sinks(sources_list);
+}
+
