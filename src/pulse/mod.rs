@@ -18,8 +18,8 @@ pub fn parse_sources(pactl_list_sources: &str) -> Vec<Source>{
     return sources;
 }
 
-pub fn parse_sinks(pactl_list_sources: &str) -> Vec<Sink>{
-    let objects = pactl_list_format::parse_pactl_list_output(pactl_list_sources);
+pub fn parse_sinks(pactl_list_sinks: &str) -> Vec<Sink>{
+    let objects = pactl_list_format::parse_pactl_list_output(pactl_list_sinks);
 
     let mut sinks: Vec<Sink> = Vec::new();
     for object in objects{

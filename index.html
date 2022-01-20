@@ -11,7 +11,7 @@
             document.getElementById('parse_pactl_list_output').addEventListener('click', () => {
                 init().then(() => {
                     parse_sources(document.getElementById('sources_list').value)
-                    parse_sinks('Dummy Sinks')
+                    parse_sinks(document.getElementById('sinks_list').value)
                 });
             });
         </script>

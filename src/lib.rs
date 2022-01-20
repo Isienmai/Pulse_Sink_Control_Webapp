@@ -8,11 +8,6 @@ extern{
 }
 
 #[wasm_bindgen]
-pub fn greet(name: &str) {
-    alert(&format!("why HELLO THERE {}!", name));
-}
-
-#[wasm_bindgen]
 pub fn parse_sources(sources_list: &str) {
     let sources = pulse::parse_sources(sources_list);
     alert(&format!("Sources: {}!", sources.len()));
