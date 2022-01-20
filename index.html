@@ -3,16 +3,26 @@
     <head>
         <meta charset="utf-8">
         <title>rust-wasm Tutorial</title>
+        <link rel="stylesheet" href="./style.css"/>
         <script type="module">
-            import init, {greet} from "./pkg/pulse_sink_control_webapp.js";
-            document.querySelector('input').addEventListener('click', () => {
+            // Import Webasm functions
+            import init, {parse_sources, parse_sinks} from "./pkg/pulse_sink_control_webapp.js";
+
+            document.getElementById('parse_pactl_list_output').addEventListener('click', () => {
                 init().then(() => {
-                    greet('Web Assembly User')
+                    parse_sources(document.getElementById('sources_list').value)
+                    parse_sinks('Dummy Sinks')
                 });
             });
         </script>
     </head>
     <body>
-        <input type="button" value="RunRust" id="surveyButton" />
+        <main>
+            <div class="pactl_list_input">
+                <textarea rows="5" cols="250" type="text" placeholder="pactl list sources" id="sources_list"></textarea>
+                <textarea rows="5" cols="250" type="text" placeholder="pactl list sinks" id="sinks_list"></textarea>
+                <input type="button" value="Parse Pactl Output" id="parse_pactl_list_output" />
+            </div>
+        </main>
     </body>
 </html>

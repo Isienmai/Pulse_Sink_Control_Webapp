@@ -1,0 +1,28 @@
+
+html{
+    height: 100%;
+}
+
+body{
+    background-color: var(--color-palette-background1);
+    font: 75% Helvetica;
+    color: var(--color-palette-foreground);
+    margin: inherit;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+}
+
+main{
+    display: grid;
+    justify-content: left;
+    grid-template-rows: auto;
+    grid-template-columns: auto auto auto;
+}
+
+.pactl_list_input{
+  display: grid;
+  grid-auto-rows: auto auto max-content;
+  grid-auto-columns: auto;
+}

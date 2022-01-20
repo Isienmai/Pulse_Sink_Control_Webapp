@@ -6,12 +6,11 @@ use std::collections::HashMap;
 
 /// Given a string formatted to match the output of a "pactl list" command
 /// Return all the pulse objects in that string
-pub fn parse_pactl_list_output(list_output: &str) -> Vec<PulseObject>
-{
+pub fn parse_pactl_list_output(list_output: &str) -> Vec<PulseObject>{
     let mut objects: Vec<PulseObject> = Vec::new();
 
-    let object_regex = Regex::new(r"(?m)(^\S+ #\d+$(\t.*$)*)").unwrap();
-    for captures in object_regex.captures_iter(list_output){
+    let object_regex = Regex::new(r"(?ms)(^\S+ #\d+$(\t.*$)*)").unwrap();
+    for captures in object_regex.captures_iter(&list_output){
         objects.push(parse_single_object(&captures[1]));
     }
 
@@ -23,7 +22,7 @@ pub fn parse_pactl_list_output(list_output: &str) -> Vec<PulseObject>
 pub fn parse_single_object(object: &str) -> PulseObject{
     let mut properties = HashMap::new();
 
-    let mut object_type = String::from("DUMMY");
+    let mut object_type = String::from("NULL");
     let mut index = 0;
 
     let name_and_index_regex = Regex::new(r"(?m)^(\S+) #(\d)$").unwrap();

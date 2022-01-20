@@ -15,6 +15,9 @@ Cargo.lock
 # Ignore web asm build outputs
 /pkg/
 
+# Ignore vscode config
+/.vscode/
+
 
 # Added by cargo
 #

@@ -1,5 +1,6 @@
 [package]
 name = "pulse_sink_control_webapp"
+description = "A small piece of software to generate pulse audio terminal commands for creating/connecting/destroying sinks. More of a hobby project/excuse to learn rust than anything else."
 version = "0.1.0"
 edition = "2021"
 

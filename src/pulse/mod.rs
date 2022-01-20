@@ -31,3 +31,6 @@ pub fn parse_sinks(pactl_list_sources: &str) -> Vec<Sink>{
     
     return sinks;
 }
+
+#[cfg(test)]
+mod tests;
