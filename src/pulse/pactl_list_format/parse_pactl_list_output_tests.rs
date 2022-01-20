@@ -221,4 +221,10 @@ Source #6
 		assert_eq!(object.object_type, "Source");
 		assert_eq!(object.index, index + 1);
 	}
+	assert_eq!(objects[0].property_count(), 15);
+	assert_eq!(objects[1].property_count(), 15);
+	assert_eq!(objects[2].property_count(), 15);
+	assert_eq!(objects[3].property_count(), 15);
+	assert_eq!(objects[4].property_count(), 17);
+	assert_eq!(objects[5].property_count(), 15);
 }

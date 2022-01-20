@@ -9,9 +9,9 @@ use std::collections::HashMap;
 pub fn parse_pactl_list_output(list_output: &str) -> Vec<PulseObject>{
     let mut objects: Vec<PulseObject> = Vec::new();
 
-    let object_regex = Regex::new(r"(?ms)(^\S+ #\d+$(\t.*$)*)").unwrap();
-    for captures in object_regex.captures_iter(&list_output){
-        objects.push(parse_single_object(&captures[1]));
+    let object_regex = Regex::new(r"(?m)^\S+ #\d+\r?\n(\t.*\r?\n)*").unwrap();
+    for captures in object_regex.captures_iter(list_output){
+        objects.push(parse_single_object(&captures[0]));
     }
 
     return objects;
