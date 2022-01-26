@@ -14,14 +14,26 @@ body{
     grid-template-columns: auto;
 }
 
-main{
+.pactl_wasm_webapp{
     display: grid;
     justify-content: left;
     grid-template-rows: auto;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 20% 60% 20%;
 }
 
-.pactl_list_input{
+.pactl_webapp_input{
+  display: grid;
+  grid-auto-rows: auto auto max-content;
+  grid-auto-columns: auto;
+}
+
+.pactl_webapp_main{
+  display: grid;
+  grid-auto-rows: auto auto max-content;
+  grid-auto-columns: auto;
+}
+
+.wactl_webapp_output{
   display: grid;
   grid-auto-rows: auto auto max-content;
   grid-auto-columns: auto;

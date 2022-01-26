@@ -17,11 +17,16 @@
         </script>
     </head>
     <body>
-        <main>
-            <div class="pactl_list_input">
+        <main class="pactl_wasm_webapp">
+            <div class="pactl_webapp_input">
                 <textarea rows="5" cols="250" type="text" placeholder="pactl list sources" id="sources_list"></textarea>
                 <textarea rows="5" cols="250" type="text" placeholder="pactl list sinks" id="sinks_list"></textarea>
                 <input type="button" value="Parse Pactl Output" id="parse_pactl_list_output" />
+            </div>
+            <div class="pactl_webapp_main">
+            </div>
+            <div class="wactl_webapp_output">
+                <textarea rows="5" cols="250" type="text" placeholder="pactl commands" id="sources_list"></textarea>
             </div>
         </main>
     </body>
