@@ -23,7 +23,7 @@ body{
 
 .pactl_webapp_input{
   display: grid;
-  grid-auto-rows: auto auto max-content;
+  grid-auto-rows: auto auto auto max-content;
   grid-auto-columns: auto;
 }
 
