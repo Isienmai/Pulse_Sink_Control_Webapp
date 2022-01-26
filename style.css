@@ -35,7 +35,7 @@ body{
 .pactl_webapp_main_available_sources{
   display: grid;
   grid-template-rows: auto auto auto auto;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 25% 25% 25% 25%;
 }
 
 .wactl_webapp_output{
