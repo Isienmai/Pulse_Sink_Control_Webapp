@@ -29,7 +29,7 @@ body{
 
 .pactl_webapp_main{
   display: grid;
-  grid-template-columns: 20% 20% 60%;
+  grid-template-columns: 10% 10% 80%;
 }
 
 .pactl_webapp_main_available_sources{
