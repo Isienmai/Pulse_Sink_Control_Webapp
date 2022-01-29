@@ -38,6 +38,10 @@ body{
   grid-template-columns: 25% 25% 25% 25%;
 }
 
+.pactl_webapp_main_source_button{
+  white-space: normal;
+}
+
 .wactl_webapp_output{
   display: grid;
   grid-auto-rows: auto auto max-content;
