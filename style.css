@@ -29,17 +29,10 @@ body{
 
 .pactl_webapp_main{
   display: grid;
-  grid-auto-rows: auto auto max-content;
+  grid-template-columns: 20% 20% 60%;
 }
 
 .pactl_webapp_main_available_sources{
-  display: grid;
-  grid-template-rows: auto auto auto auto;
-  grid-template-columns: 25% 25% 25% 25%;
-}
-
-.pactl_webapp_main_source_button{
-  white-space: normal;
 }
 
 .wactl_webapp_output{

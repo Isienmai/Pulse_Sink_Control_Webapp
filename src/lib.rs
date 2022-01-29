@@ -5,6 +5,7 @@ mod pulse;
 #[wasm_bindgen(module = "/ui_control.js")]
 extern{
     pub fn append_source(name: &str, description: &str);
+    pub fn append_sink(name: &str, description: &str);
 }
 
 #[wasm_bindgen]
@@ -16,8 +17,10 @@ pub fn parse_sources(sources_list: &str) {
 }
 
 #[wasm_bindgen]
-pub fn parse_sinks(sources_list: &str) {
-    let sinks = pulse::parse_sinks(sources_list);
-    //custom_alert(&format!("Sinks: {}!", sinks.len()));
+pub fn parse_sinks(sinks_list: &str) {
+    let sinks = pulse::parse_sinks(sinks_list);
+    for sink in sinks{
+        append_sink(&sink.name, &sink.description);
+    }
 }
 

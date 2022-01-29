@@ -25,9 +25,12 @@
                 <input type="button" value="Parse pactl list Output" id="parse_pactl_list_output" />
             </div>
             <div class="pactl_webapp_main">
-                <div class="pactl_webapp_main_available_sources" id="sources_display">
+                <ul class="pactl_webapp_main_available_sources" id="sources_display">
+                </ul>
+                <ul class="pactl_webapp_main_available_sinks" id="sinks_display">
+                </ul>
+                <div class="pactl_webapp_main_active_links">
                 </div>
-                <div class="pactl_webapp_main_active_links"></div>
             </div>
             <div class="wactl_webapp_output">
                 <textarea rows="5" cols="250" type="text" placeholder="pactl commands" id="sources_list"></textarea>
