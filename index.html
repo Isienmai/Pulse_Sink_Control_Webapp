@@ -8,8 +8,21 @@
             // Import Webasm functions
             import init, {parse_sources, parse_sinks} from "./pkg/pulse_sink_control_webapp.js";
 
+            function removeAllChildNodes(parent) {
+                while (parent.firstChild) {
+                    parent.removeChild(parent.firstChild);
+                }
+            }
+            
+            function reset_display(){
+                        removeAllChildNodes(document.getElementById('sources_display'));
+                        removeAllChildNodes(document.getElementById('sinks_display'));
+            }
+
             document.getElementById('parse_pactl_list_output').addEventListener('click', () => {
                 init().then(() => {
+                    
+                    reset_display();
                     parse_sources(document.getElementById('sources_list').value)
                     parse_sinks(document.getElementById('sinks_list').value)
                 });
