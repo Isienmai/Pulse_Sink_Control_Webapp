@@ -14,14 +14,14 @@
                 }
             }
 
-            function append_source(new_source_name, new_source_description){
+            function append_source(new_source_description){
                 let source_list_item = document.createElement("li");
                 source_list_item.appendChild(document.createTextNode(new_source_description));
 
                 document.getElementById('sources_display').appendChild(source_list_item);
             }
 
-            function append_sink(new_sink_name, new_sink_description){
+            function append_sink(new_sink_description){
                 let sink_list_item = document.createElement("li");
                 sink_list_item.appendChild(document.createTextNode(new_sink_description));
 
@@ -43,16 +43,22 @@
                 }
             }
 
-            const pulseData = new PulseData();
+            init().then(initialised_rust => {
+                const pulseData = new PulseData();
 
-            document.getElementById('parse_pactl_list_output').addEventListener('click', () => {
-                init().then(() => {
-                    pulseData.parse_sources(document.getElementById('sources_list').value);
-                    pulseData.parse_sinks(document.getElementById('sinks_list').value);
+                document.getElementById('parse_pactl_list_output').addEventListener('click', () => {
+                    pulseData.update_sources(document.getElementById('sources_list').value);
+                    pulseData.update_sinks(document.getElementById('sinks_list').value);
                     
                     update_display(pulseData);
                 });
-            });
+
+                document.getElementById('add_sink_button').addEventListener('click', () => {
+                    pulseData.add_new_sink(document.getElementById('new_sink_name').value);
+                    
+                    update_display(pulseData);
+                });
+            });            
         </script>
     </head>
     <body>

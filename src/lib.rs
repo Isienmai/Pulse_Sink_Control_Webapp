@@ -13,6 +13,15 @@ pub struct PulseData{
 
 #[wasm_bindgen]
 impl PulseData{
+    /// Provide constructor for javascript to use
+    #[wasm_bindgen(constructor)]
+    pub fn new() -> Self{
+        Self{
+            sources: Vec::new(),
+            sinks: Vec::new()
+        }
+    }
+
     /// Set this object's Sources to those contained in a pactl list output string
     pub fn update_sources(&mut self, sources_list: &str){
         self.sources = pulse::parse_sources(sources_list);
@@ -31,7 +40,7 @@ impl PulseData{
             description: String::from(new_sink_name)});
         self.sources.push(Source{
             name: String::from(new_sink_name) + ".monitor", 
-            description: String::from(new_sink_name) + ".monitor"});
+            description: String::from("Monitor of ") + new_sink_name});
     }
 
     /// Get the number of Sources
@@ -41,7 +50,7 @@ impl PulseData{
 
     /// Get the number of Sinks
     pub fn get_sinks_count(&self)->usize{
-        return self.sources.len();
+        return self.sinks.len();
     }
 
     /// Get the description of a specified Source object (Specified by index)
