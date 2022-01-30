@@ -4,12 +4,6 @@ mod pulse;
 use pulse::pulse_object::source::Source;
 use pulse::pulse_object::sink::Sink;
 
-#[wasm_bindgen(module = "/ui_control.js")]
-extern{
-    pub fn append_source(name: &str, description: &str);
-    pub fn append_sink(name: &str, description: &str);
-}
-
 /// Struct to hold all sources/sinks/connections/module changes
 #[wasm_bindgen]
 pub struct PulseData{
